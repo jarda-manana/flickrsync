@@ -123,7 +123,7 @@ class Syncer(object):
     #enddef
     
     def check_dirs_vs_sets(self):
-        for localdir in self.local_photos.keys():
+        for localdir in sorted(self.local_photos.keys()):
             setId = self.remote_photosets.get(localdir, "")
             if setId:
                 print "localdir %s paired to photoset %s" % (localdir, setId)
