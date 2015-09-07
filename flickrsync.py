@@ -9,14 +9,12 @@ import flickrapi
 import httplib, urllib2
 import sys
 import pprint
-
+import flickrsecrets
 #constants:
 EXT_IMAGE = ('jpg', 'png', 'jpeg')
 EXT_VIDEO = ('avi', 'wmv', 'mov', 'mp4', '3gp', 'ogg', 'ogv', 'mts')
 
 # Put your API & SECRET keys here
-KEY = ""
-SECRET = ""
 DEFAULT_PHOTO_ID = "12988000204" #used while photoset isn't complete
 
 MAX_ATTEMPTS = 3
@@ -52,7 +50,7 @@ class Syncer(object):
         print "Runnig sync in %s" % self.sync_path
         
         self.flickrargs = args = {'format': 'json', 'nojsoncallback': 1}
-        self.api = flickrapi.FlickrAPI(KEY, SECRET)
+        self.api = flickrapi.FlickrAPI(flickrsecrets.KEY, flickrsecrets.SECRET)
         # api.token.path = 'flickr.token.txt'
 
         # Ask for permission
